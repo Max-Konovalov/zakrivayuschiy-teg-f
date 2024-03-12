@@ -7,5 +7,6 @@
     --background-gradient:
         repeating-linear-gradient(#d3d3d3, transparent 2px),
         repeating-linear-gradient(90deg, #d3d3d3, transparent 2px),
-        linear-gradient(#e7e7e7 0.01%, #1a1a1a;);
+        linear-gradient(#e7e7e7 0.01%, #1a1a1a);
+    --decorative-font: "PressStart2P-Regular", serif;
 }

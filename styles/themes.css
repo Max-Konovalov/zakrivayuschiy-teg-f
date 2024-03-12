@@ -17,11 +17,34 @@
 
 :root.theme-light {
     --main-color: #fff;
-    /* --gradient-color: #d3d3d3; */
     --accent-color: #000;
     --label-stroke-color:var(--main-color);
     --background-gradient:
         repeating-linear-gradient(#d3d3d3, transparent 2px),
         repeating-linear-gradient(90deg, #d3d3d3, transparent 2px),
         linear-gradient(#e7e7e7 0.01%, #1a1a1a);
+}
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --main-color: #fff;
+        --accent-color: #000;
+        --label-stroke-color:var(--main-color);
+        --background-gradient:
+                repeating-linear-gradient(#d3d3d3, transparent 2px),
+                repeating-linear-gradient(90deg, #d3d3d3, transparent 2px),
+                linear-gradient(#e7e7e7 0.01%, #1a1a1a);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-color: #000;
+        --accent-color: #00CC14;
+        --background-gradient:
+                repeating-linear-gradient(var(--main-color), transparent 2px),
+                repeating-linear-gradient(90deg, var(--main-color), transparent 2px),
+                linear-gradient(#007f0c, #004306);
+    }
 }
