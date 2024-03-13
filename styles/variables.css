@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
+    --button-fill-color: var(--main-color);
     --main-color: #fff;
-    /* --gradient-color: #d3d3d3; */
     --accent-color: #000;
     --label-stroke-color:var(--main-color);
     --background-gradient:
