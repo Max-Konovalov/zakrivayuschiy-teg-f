@@ -242,7 +242,7 @@ main .post:nth-child(8) .content__image {
 .content__text {
   font-size: 18px;
   line-height: 21px;
-  font-weight: var(--content-text-font-weight);
+  font-variation-settings: 'wght' var(--content-text-font-weight);
 }
 
 .like-button__container {
@@ -440,8 +440,12 @@ dialog::backdrop {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  /*gap: 20px;*/
 }
+
+/*.dialog-svg {*/
+/*  width: 39px;*/
+/*}*/
 
 .dialog-title {
   line-height: 21px;
