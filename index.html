@@ -319,15 +319,27 @@
     </main>
     <footer class="footer">
       <div class="save__button">
-        <button class="button floppy__button button-hover">
-          <use>
+        <button type="button"
+                onclick="window['save-dialog'].showModal()"
+                aria-controls="save-dialog"
+                class="button floppy__button button-hover">
             <svg width="21" height="21" fill="white">
               <use href="svg/floppy.svg#floppy"/>
-            </svg> 
-            <span class="button__text">Сохранить на память</span>
-          </use>
+            </svg>
+          <span class="button__text">Сохранить на память</span>
         </button>     
       </div>
+      <dialog class="dialog" id="save-dialog">
+        <div class="dialog-content">
+          <svg height="39" width="100" viewBox="0 0 21 21" fill="white">
+            <use href="svg/floppy.svg#floppy"/>
+          </svg>
+          <h2 class="dialog-title">Вставьте дискету, чтобы продолжить</h2>
+        </div>
+        <form>
+          <button class="button button-hover">OK</button>
+        </form>
+      </dialog>
     </footer>
     <script src="./scripts/like.js"></script>
   </body>

@@ -101,6 +101,7 @@
 .button {
   border: none;
   background: var(--main-color);
+  cursor: pointer;
 }
 
 .theme-menu__button {
@@ -418,4 +419,49 @@ main .post:nth-child(8) .content__image {
   transition: box-shadow ease-in-out 0.5s;
   box-shadow: 2px 2px 0 var(--accent-color);
 }
+
+.dialog[open] {
+  width: 357px;
+  padding: 30px;
+  border: 2px solid var(--accent-color);
+  font-family: var(--decorative-font);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+dialog::backdrop {
+  background-color: #000;
+  opacity: 0.75;
+  backdrop-filter: blur(7px);
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog-title {
+  line-height: 21px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+form .button {
+  height: 38px;
+  font-family: var(--decorative-font);
+  border: 2px solid var(--accent-color);
+  width: 100%;
+  outline: none;
+}
+
+.dialog .button:focus-visible {
+  border: 2px solid var(--accent-color);
+}
+
+
+
 
