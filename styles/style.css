@@ -34,7 +34,7 @@
 .header {
   margin-top: 100px;
   font-family: var(--decorative-font);
-  width: clamp(350px, 100%, 700px);;
+  width: clamp(350px, 100%, 700px);
   min-height: 369px;
   background: var(--main-color);
   color: var(--accent-color);
@@ -124,24 +124,20 @@ main {
   padding-bottom: 103px;
 }
 
-.filter-grayscale {
-  filter: grayscale(50%);
-}
-
-.filter-saturate60 {
-  filter: saturate(60%);
-}
-
-.filter-saturate300 {
-  filter: saturate(300%);
+.filter-grayscale-saturate {
+  filter:
+          grayscale(50%)
+          saturate(60%);
 }
 
 .filter-hue-rotate40 {
   filter: hue-rotate(40deg);
 }
 
-.filter-hue-rotate95 {
-  filter: hue-rotate(95deg);
+.filter-hue-rotate-saturate {
+  filter:
+          hue-rotate(95deg)
+          saturate(120%);
 }
 
 .filter-invert {
