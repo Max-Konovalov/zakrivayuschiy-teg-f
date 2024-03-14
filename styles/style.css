@@ -378,8 +378,6 @@ main .post:nth-child(8) .content__image {
   }
 }
 
-
-
 .footer {
   padding-bottom: 103px;
 }
@@ -432,6 +430,7 @@ form .button {
 }
 
 .bordered-button {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -442,10 +441,6 @@ form .button {
   outline: none;
   transition: box-shadow ease-in-out 0.5s;
   box-shadow: 2px 2px 0 var(--accent-color);
-}
-
-.bordered-button {
-  position: relative;
 }
 
 .bordered-button::before {
@@ -464,9 +459,3 @@ form .button {
 .bordered-button:hover::before {
   transform: scaleX(100%);
 }
-
-
-
-
-
-
