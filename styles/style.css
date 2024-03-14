@@ -100,8 +100,11 @@
 
 .button {
   border: none;
+  outline: none;
   background: var(--main-color);
   cursor: pointer;
+  font-family: var(--decorative-font);
+  color: var(--accent-color);
 }
 
 .theme-menu__button {
@@ -257,10 +260,6 @@ main .post:nth-child(8) .content__image {
 .card__like-button {
   width: 130px;
   max-height: 38px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid var(--accent-color);
 }
 
 .button__text {
@@ -379,26 +378,7 @@ main .post:nth-child(8) .content__image {
   }
 }
 
-.button-hover {
-  position: relative;
-}
 
-.button-hover::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--button-fill-color);
-  transform-origin: left;
-  transform: scaleX(0%);
-  transition: transform 0.5s ease-in-out;
-  mix-blend-mode: difference;
-}
-
-.button-hover:hover::before {
-  transform: scaleX(100%);
-}
 
 .footer {
   padding-bottom: 103px;
@@ -406,24 +386,16 @@ main .post:nth-child(8) .content__image {
 
 .floppy__button {
   padding: 15px 20px;
-  font-family: var(--decorative-font);
   font-size: 14px;
-  color: var(--accent-color);
-  background: var(--main-color);
-  border: 2px solid var(--accent-color);
   line-height: 12px;
-}
-
-.card__like-button:focus-visible, .floppy__button:focus-visible {
-  outline: none;
-  transition: box-shadow ease-in-out 0.5s;
-  box-shadow: 2px 2px 0 var(--accent-color);
 }
 
 .dialog[open] {
   width: 357px;
   padding: 30px;
   border: 2px solid var(--accent-color);
+  background: var(--main-color);
+  color: var(--accent-color);
   font-family: var(--decorative-font);
   display: flex;
   flex-direction: column;
@@ -443,9 +415,9 @@ dialog::backdrop {
   /*gap: 20px;*/
 }
 
-/*.dialog-svg {*/
-/*  width: 39px;*/
-/*}*/
+.dialog-svg {
+  fill: var(--accent-color);
+}
 
 .dialog-title {
   line-height: 21px;
@@ -456,15 +428,44 @@ dialog::backdrop {
 
 form .button {
   height: 38px;
-  font-family: var(--decorative-font);
-  border: 2px solid var(--accent-color);
   width: 100%;
-  outline: none;
 }
 
-.dialog .button:focus-visible {
+.bordered-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid var(--accent-color);
 }
+
+.bordered-button:focus-visible {
+  outline: none;
+  transition: box-shadow ease-in-out 0.5s;
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.bordered-button {
+  position: relative;
+}
+
+.bordered-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--button-fill-color);
+  transform-origin: left;
+  transform: scaleX(0%);
+  transition: transform 0.5s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+.bordered-button:hover::before {
+  transform: scaleX(100%);
+}
+
+
 
 
 
