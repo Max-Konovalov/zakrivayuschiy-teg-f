@@ -17,6 +17,7 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background: var(--main-color);
   background-image: var(--background-gradient);
   background-attachment: fixed;
   background-position: center;
@@ -24,7 +25,6 @@
   background-repeat: no-repeat;
   inline-size: 100%;
   max-inline-size: 850px;
-  block-size: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +33,7 @@
 
 .header {
   margin-top: 100px;
-  font-family: "PressStart2P-Regular", serif;
+  font-family: var(--decorative-font);
   width: clamp(350px, 100%, 700px);;
   min-height: 369px;
   background: var(--main-color);
@@ -71,27 +71,9 @@
   padding-left: 17px;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 12px;
   font-size: 14px;
   line-height: 14px;
-}
-
-.theme-menu__button:disabled::before {
-  content: "▶";
-  position: absolute;
-  top: 2px;
-  left: -20px;
-  animation: move ease-in-out 0.5s infinite alternate-reverse;
-  opacity: 0.6;
-}
-
-@keyframes move {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(4px);
-  }
 }
 
 .theme-menu__button:disabled {
@@ -99,6 +81,7 @@
 }
 
 .button {
+  padding: 0;
   border: none;
   outline: none;
   background: var(--main-color);
@@ -138,42 +121,39 @@
 main {
   width: clamp(350px, 100%, 700px);
   margin-top: 99px;
+  padding-bottom: 103px;
 }
 
-main .post:nth-child(2) .content__image {
-  filter:
-          grayscale(50%)
-          saturate(60%);
+.filter-grayscale {
+  filter: grayscale(50%);
 }
 
-main .post:nth-child(3) .content__image {
+.filter-saturate60 {
+  filter: saturate(60%);
+}
+
+.filter-saturate300 {
   filter: saturate(300%);
 }
 
-main .post:nth-child(4) .content__image {
-  filter:
-          hue-rotate(40deg)
-          saturate(120%);
+.filter-hue-rotate40 {
+  filter: hue-rotate(40deg);
 }
 
-main .post:nth-child(5) .content__image {
+.filter-hue-rotate95 {
+  filter: hue-rotate(95deg);
+}
+
+.filter-invert {
   filter: invert(100%);
 }
 
-main .post:nth-child(6) .content__image {
+.filter-sepia {
   filter: sepia(90%);
 }
 
-main .post:nth-child(7) .content__image {
+.filter-blur {
   filter: blur(10px);
-  }
-
-main .post:nth-child(8) .content__image {
-  filter:
-          hue-rotate(95deg)
-          blur(1px)
-          contrast(55%)
-          saturate(120%);
 }
 
 .post {
@@ -228,12 +208,15 @@ main .post:nth-child(8) .content__image {
   line-height: 14px;
   font-weight: 400;
   color: var(--accent-color);
+  text-shadow: 2px 0 0 var(--main-color);
+  z-index: 2;
 }
 
 @supports((text-stroke: 1px solid var(--main-color)) or (-webkit-text-stroke: 3px var(--main-color))) {
   .label {
     -webkit-text-stroke: 1px var(--main-color);
     text-stroke: 1px solid var(--main-color);
+    text-shadow: none;
   }
 
 }
@@ -249,13 +232,15 @@ main .post:nth-child(8) .content__image {
   align-self: flex-end;
   display: flex;
   justify-content: center;
+  align-items: center;
   background: transparent;
   margin: 0 25px 25px 0;
+  gap: 4px;
 }
 
 .card__like-button {
   width: 130px;
-  max-height: 38px;
+  min-height: 38px;
 }
 
 .button__text {
@@ -270,7 +255,7 @@ main .post:nth-child(8) .content__image {
   border: 2px solid transparent;
   align-self: end;
   justify-self: end;
-  transition: fill 3s ease;
+  transition: fill 3s linear;
 }
 
 .card__icon-button:focus-visible {
@@ -281,92 +266,8 @@ main .post:nth-child(8) .content__image {
   opacity: 0;
 }
 
-/*Преобразование в изначальный вид*/
-.like-icon .core {
-  fill: var(--main-color);
-  transition: fill 0.3s linear;
-  transition-delay: 0.03s;
-}
-
-.like-icon .main-body {
-  fill: var(--main-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon .contour {
-  fill: var(--accent-color);
-  transition: fill 0.1s linear;
-}
-
-/*Преобразование в :active вид*/
-.like-icon:active .main-body {
-  transition: fill 0.3s linear;
-  fill: #FF0000;
-}
-
-.like-icon:active .core {
-  transition: fill 0.3s linear;
-  fill: #FF0000;
-}
-
-/*Преобразование в состояние liked*/
-.like-icon.is-liked .core {
-  fill: #FF0000;
-  animation: fill 0.3s ease;
-}
-
-.like-icon.is-liked .main-body {
-  fill: #FF0000;
-  animation: fill 0.3s 00.3s;
-}
-
-.like-icon.is-liked .contour {
-  fill: #FF0000;
-  animation: fill 0.3s 00.6s;
-}
-
-.like-icon.is-liked .heart {
-  animation: like 0.3s ease-in 0.1s 1;
-  transform-origin: center;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks-boom 0.3s ease-in 0.3s 1;
-}
-
-@keyframes like {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.2);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes sparks-boom {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.footer {
-  padding-bottom: 103px;
-}
-
 .floppy__button {
+  margin: auto;
   padding: 15px 20px;
   line-height: 12px;
   gap: 12px;
@@ -375,6 +276,7 @@ main .post:nth-child(8) .content__image {
 .floppy__button svg {
   width: 21px;
   height: 21px;
+
 }
 
 .dialog[open] {
@@ -392,7 +294,6 @@ main .post:nth-child(8) .content__image {
 dialog::backdrop {
   background-color: #000;
   opacity: 0.75;
-  backdrop-filter: blur(7px);
 }
 
 .dialog-content {
@@ -426,11 +327,11 @@ form .button {
   justify-content: center;
   align-items: center;
   border: 2px solid var(--accent-color);
+  transition: box-shadow ease-in-out 0.5s;
 }
 
 .bordered-button:focus-visible {
   outline: none;
-  transition: box-shadow ease-in-out 0.5s;
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
@@ -472,9 +373,14 @@ form .button {
 
 }
 
-@media (width <= 375px) {
+@media (width <= 400px) {
   .header {
     min-height: 327px;
+  }
+
+  .label {
+    top: 22px;
+    right: 12px;
   }
 
   .floppy__button {
@@ -482,7 +388,11 @@ form .button {
     height: 80px;
   }
 
+  .floppy__button svg {
+    scale: 1.3;
+  }
+
   .dialog-svg {
-    width: 28px;
+    width: 100px;
   }
 }
