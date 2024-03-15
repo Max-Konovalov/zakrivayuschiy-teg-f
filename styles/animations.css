@@ -34,13 +34,13 @@
 
 /*Преобразование в изначальный вид*/
 .like-icon .core {
-    fill: var(--main-color);
+    fill: transparent;
     transition: fill 0.3s linear;
     transition-delay: 0.03s;
 }
 
 .like-icon .main-body {
-    fill: var(--main-color);
+    fill: transparent;
     transition: fill 0.3s linear;
 }
 
@@ -64,27 +64,27 @@
 /*Преобразование в :active вид*/
 .like-icon:active .main-body {
     transition: fill 0.3s 0.05s linear;
-    fill: #FF0000;
+    fill: var(--like-color);
 }
 
 .like-icon:active .core {
     transition: fill 0.3s linear;
-    fill: #FF0000;
+    fill: var(--like-color);
 }
 
 /*Преобразование в состояние liked*/
 .like-icon.is-liked .core {
-    fill: #FF0000;
+    fill: var(--like-color);
     animation: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
-    fill: #FF0000;
+    fill: var(--like-color);
     animation: fill 0.3s 00.5s linear;
 }
 
 .like-icon.is-liked .contour {
-    fill: #FF0000;
+    fill: var(--like-color);
     animation: fill 0.3s 00.6s linear;
 }
 
